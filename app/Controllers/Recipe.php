@@ -28,12 +28,15 @@ class Recipe extends BaseController
 	}
 	public function detail($id_resep)
 	{
+		// d($this->komentarModel->getKomentar($id_resep));
+		// dd($this->resepModel->getResep($id_resep));
 		$title =  ['title' => 'Detail Resep | Panganku'];
 		$data = [
 			'resep' => $this->resepModel->getResep($id_resep)
 		];
 		$komentar = [
-			'komentar' => $this->komentarModel->getKomentar($id_resep)
+			'komentar' => $this->komentarModel->getKomentar($id_resep),
+			'resep' => $this->resepModel->getResep($id_resep)
 		];
 		//dd($data);
 		//dd($komentar);
