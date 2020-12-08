@@ -45,7 +45,7 @@ class User extends BaseController
 			}
 		}
 		else {
-			$session->setFlashdata('pesan', 'Email Tidak terdaftar');
+			$session->setFlashdata('pesan', 'Username Tidak terdaftar');
 			return redirect()->to(base_url('login'));
 		}
 	}

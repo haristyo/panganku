@@ -87,7 +87,7 @@
                             <button type="submit" class="btn btn-primary w-100">Daftar</button>
                           </div>
                           <div class="col-sm-auto">
-                            <a class="nav-link" href="login-pengguna.html">Sudah punya akun ?</a>
+                          <a class="nav-link" href="<?=base_url('/login')?>">Sudah punya akun ?</a>
                           </div>
                         </div>                 
                       </form>

@@ -74,6 +74,7 @@
                                     <?=$validation->getError('bio');?>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label for="gambar_profile">gambar_profil</label>
                             <input type="file" class="form-control-file <?= ($validation->hasError('gambar_profile')) ? 'is-invalid' : '' ;?>" id="gambar_profile" name="gambar_profile">
@@ -87,7 +88,7 @@
                             <button type="submit" class="btn btn-primary w-100">Daftar</button>
                           </div>
                           <div class="col-sm-auto">
-                            <a class="nav-link" href="login-pengguna.html">Sudah punya akun ?</a>
+                          <a class="nav-link" href="<?=base_url('/login')?>">Sudah punya akun ?</a>
                           </div>
                         </div>                 
                       </form>
