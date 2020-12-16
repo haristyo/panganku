@@ -17,21 +17,21 @@
                         <?= csrf_field(); ?>
                         <input type="hidden" name="is_admin" value="<?= $is_admin?>">
                         <div class="form-group">
-                          <label for="email">Email address</label>
+                          <label for="email">Alamat Email</label>
                           <input type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ;?>" id="email" name="email" placeholder="masukan email anda disini" autofocus value="<?= old('email')?>">
                           <div class="invalid-feedback">
                             <?=$validation->getError('email');?>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="username">Username</label>
+                          <label for="username">Nama Pengguna</label>
                           <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ;?>" id="username" name="username" placeholder="isi dengan username" value="<?= old('username')?>">
                           <div class="invalid-feedback">
                             <?=$validation->getError('username');?>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="password">Password</label>
+                          <label for="password">Kata Sandi</label>
                           <input name="password" type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ;?>" id="password" placeholder="minimal 8 karakter"  value="<?= old('password')?>">
                           <div class="invalid-feedback">
                             <?=$validation->getError('password');?>
@@ -45,19 +45,21 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="jenis_kelamin">Jenis Kelamin</label>
-                            <div class="form-check ">
+                          <label for="jenis_kelamin">Jenis Kelamin</label><br/>
+                          <div class="row w-75 text-center">
+                            <div class="form-check d-inline-flex">
                                 <input class="form-check-input" type="radio" name="jenis_kelamin" id="L" value="L" <?php if(old('jenis_kelamin')=="L"){echo 'checked';}?>>
                                 <label class="form-check-label" for="L">
                                     Laki-laki
                                 </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check ml-auto">
                                 <input class="form-check-input" type="radio" name="jenis_kelamin" id="P" value="P" <?php if(old('jenis_kelamin')=="P"){echo 'checked';}?>>
                                 <label class="form-check-label" for="P">
                                     Perempuan
                                 </label>
                             </div>
+                          </div>
                             
                         </div>
                         <div class="form-group">
@@ -75,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="gambar_profile">gambar_profil</label>
+                            <label for="gambar_profile">Gambar Profil</label>
                             <input type="file" class="form-control-file <?= ($validation->hasError('gambar_profile')) ? 'is-invalid' : '' ;?>" id="gambar_profile" name="gambar_profile">
                             <div class="invalid-feedback">
                                 <?=$validation->getError('gambar_profile');?>

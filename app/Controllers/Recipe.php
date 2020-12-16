@@ -51,12 +51,14 @@ class Recipe extends BaseController
 	}
 	public function create()
 	{
-		
+
 		$title =  ['title' => 'Buat Resep | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation()
 		];
-		
+		// dd($_SESSION['last']);
+		// $uri = new \CodeIgniter\HTTP\URI(base_url('recipe/create'));
+		$_SESSION['last']= 'recipe/create';
 		if(session()->get('logged_in')=="Y"){
 		echo view('header_v',$title);
 		echo view('recipe/create_v', $data);

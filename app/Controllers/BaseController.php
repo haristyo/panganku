@@ -43,6 +43,9 @@ class BaseController extends Controller
 		// $this->session = \Config\Services::session();
 		session();
 		$session = session();
+		if (!isset($_SESSION['last'])) {
+			$_SESSION['last'] = "";
+		}
 		
 	}
 

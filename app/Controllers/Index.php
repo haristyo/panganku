@@ -5,7 +5,7 @@ class Index extends BaseController
 	public function index()
 	{ //session()->get('');
 		$title = [
-			'title' => 'Index | Panganku'
+			'title' => 'Halaman Utama | Panganku'
 			
 		];
 		echo view('header_v',$title);

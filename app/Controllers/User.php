@@ -6,6 +6,9 @@ class User extends BaseController
 	public function __construct()
 	{
 		$this->userModel = new UserModel();
+		// if (!isset($_SESSION['last'])) {
+		// 	$_SESSION['last'] = "";
+		// };
 	}
 	public function login()
 	{
@@ -24,7 +27,7 @@ class User extends BaseController
 		$username = $this->request->getVar('username');
 		$password = $this->request->getVar('password');
 		$data = $this->userModel->where('username',$username)->first();
-		
+		// dd($_SESSION['last']);
 		if($data){
 			$pass = $data['password'];
 			$verify_pass = ($pass == $password);
@@ -36,8 +39,15 @@ class User extends BaseController
 					'username' => $data['username'],
 					'logged_in'=> TRUE
 				];
-			$session->set($sess_data);
-			return redirect()->to(base_url());
+				$session->set($sess_data);
+				// dd($_SESSION['last']);
+				if ($_SESSION['last'] == "") {
+					return redirect()->to(base_url());
+					// $_SESSION['last']= $uri->getPath();
+				}
+				else{ 
+					return redirect()->to(base_url($_SESSION['last']));
+				}
 			}
 			else {
 				$session->setFlashdata('pesan', 'Password salah');

@@ -7,6 +7,7 @@ class Article extends BaseController
 	public function __construct()
 	{
 		$this->artikelModel= new ArtikelModel();
+		
 	}
 	public function index()
 	{
@@ -47,13 +48,15 @@ class Article extends BaseController
 			'validation' =>  \Config\Services::validation(),
 			//'artikel' => $this->artikelModel->getArtikel()
 		];
-		
+		// $uri = new \CodeIgniter\HTTP\URI(base_url('article/create'));
+		$_SESSION['last']= 'article/create';
+		// dd($uri->getPath());
 		if(session()->get('is_admin')=="Y"){
 			echo view('header_v',$title);
 			echo view('article/create_v', $data);
 			echo view('footer_v');
 			}
-			else {
+		else {
 				session()->setFlashdata('pesan', 'Anda harus login sebagai admin');
 					return redirect()->to(base_url('/login'));
 			}

@@ -998,11 +998,13 @@ class Session implements SessionInterface
 		if (ENVIRONMENT === 'testing')
 		{
 			$_SESSION = [];
+
 			return;
 		}
 
 		// @codeCoverageIgnoreStart
 		session_start();
+		// $_SESSION['last'] = '';
 		// @codeCoverageIgnoreEnd
 	}
 

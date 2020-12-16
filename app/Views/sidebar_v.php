@@ -9,7 +9,7 @@
     <a href="<?= base_url('dashboard/artikel')?>" class="list-group-item list-group-item-action bg-light">Artikel</a>
     <a href="<?= base_url('dashboard/resep')?>" class="list-group-item list-group-item-action bg-light">Resep</a>
     <a href="<?= base_url('dashboard/komentar')?>" class="list-group-item list-group-item-action bg-light">Komentar</a>
-    <a href="<?= base_url('dashboard/user')?>" class="list-group-item list-group-item-action bg-light">User</a>
+    <a href="<?= base_url('dashboard/user')?>" class="list-group-item list-group-item-action bg-light">Akun</a>
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

@@ -27,7 +27,7 @@
                   <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
-                <span>Manager</span>
+                <span>Manajer</span>
                 <h4>Rima Nurkholifah <p>J3C218184</p></h4>
               </div>
             </div>

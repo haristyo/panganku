@@ -5,7 +5,7 @@ class Team extends BaseController
 	public function index()
 	{
 		$title = [
-			'title' => 'Team | Panganku'
+			'title' => 'Tim | Panganku'
 		];
 		echo view('header_v',$title);
 		echo view('team_v');

@@ -7,10 +7,10 @@
   ============================-->
   <section id="hero" class="wow fadeIn">
     <div class="hero-container">
-      <h1>Welcome to Panganku</h1>
+      <h1>Selamat datang di Website <b> Panganku</b></h1>
       <h2>Semua tidak harus tentang nasi, masih banyak makanan pengganti nasi yang jauh lebih sehat &amp; bergizi</h2>
       <img src="img/hero-img.png" alt="Hero Imgs">
-      <a href="<?= base_url('recipe')?>" class="btn-get-started scrollto">Get Started</a>
+      <a href="<?= base_url('recipe')?>" class="btn-get-started scrollto">Memulai</a>
     </div>
   </section><!-- #hero -->
 
@@ -35,7 +35,7 @@
 
                     <h2>Menjadi Nomor 1</h2>
                     <p>Kami berharap <b>Panganku</b> bisa menjadi website khusus Diversifikasi Pangan terbaik se-Indonesia</p>
-                    <h4>Rima<span>manager</span></h4>
+                    <h4>Rima<span>Manajer</span></h4>
 
                   </div>
                 </div>
@@ -45,7 +45,7 @@
 
                     <h2>Menjadi Terdepan</h2>
                     <p>Kami akan selalu mengupgrade sistem kami menjadi jauh lebih baik lagi kedepannya</p>
-                    <h4>Haris<span>Back End Developer</span></h4>
+                    <h4>Haris<span>Pengembang Back End</span></h4>
 
                   </div>
                 </div>

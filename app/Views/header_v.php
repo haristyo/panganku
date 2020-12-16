@@ -44,17 +44,17 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="<?php echo base_url(); ?>">Home</a></li>
-          <li><a href="<?php echo base_url('recipe'); ?>">Recipe</a></li>
-          <li><a href="<?php echo base_url('article'); ?>">Article</a></li>
-          <li><a href="<?php echo base_url('team'); ?>">Team</a></li>
+          <li><a href="<?php echo base_url(); ?>">Beranda</a></li>
+          <li><a href="<?php echo base_url('recipe'); ?>">Resep</a></li>
+          <li><a href="<?php echo base_url('article'); ?>">Artikel</a></li>
+          <li><a href="<?php echo base_url('team'); ?>">Tim</a></li>
           <?php if(session()->get('is_admin')=="Y") {?>
-          <a href="<?php echo base_url('dashboard'); ?>" class="btn-login">Dashboard</a>
+            <li><a href="<?php echo base_url('dashboard'); ?>" class="btn-login">Dasbor</a> </li>
           <?php } ?>
           <?php if(session()->get('logged_in')==FALSE) {?>
-          <a href="<?php echo base_url('login'); ?>" class="btn-login">Login</a>
+            <li><a href="<?php echo base_url('login'); ?>" class="btn-login">Masuk</a> </li>
           <?php } else { ?>
-            <a href="<?php echo base_url('logout'); ?>" class="btn-danger">Logout</a>
+            <li><a href="<?php echo base_url('logout'); ?>" class="btn-danger">Keluar</a> </li>
           <?php }?>
         </ul>
       </nav><!-- #nav-menu-container -->

@@ -20,7 +20,7 @@
 
     <div class="copyrights">
       <div class="container">
-        <p>&copy; Copyrights 2020. Panganku All rights reserved.</p>
+        <p>&copy; Hak Cipta 2020. Panganku Hak Cipta dilindungi Undang-undang.</p>
       </div>
     </div>
 
