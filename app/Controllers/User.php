@@ -28,12 +28,18 @@ class User extends BaseController
 		$password = $this->request->getVar('password');
 		$data = $this->userModel->where('username',$username)->first();
 		// dd($_SESSION['last']);
-		if($data){
-			$pass = $data['password'];
-			$verify_pass = ($pass == $password);
-			// dd($verify_pass);
-			if ($verify_pass) {
-				$sess_data = [
+		
+		if ($username =="" || $password =="") {
+			$session->setFlashdata('pesan', 'Username dan Password Wajib diisi');
+			return redirect()->to(base_url('login'));
+		}
+		else {
+			if($data){
+				$pass = $data['password'];
+				$verify_pass = ($pass == $password);
+				// dd($verify_pass);
+				if ($verify_pass) {
+					$sess_data = [
 					'id_user' => $data['id_user'],
 					'is_admin' => $data['is_admin'],
 					'username' => $data['username'],
@@ -54,11 +60,14 @@ class User extends BaseController
 				return redirect()->to(base_url('login'));
 			}
 		}
+	
 		else {
 			$session->setFlashdata('pesan', 'Username Tidak terdaftar');
 			return redirect()->to(base_url('login'));
+		
 		}
 	}
+}
 
 	public function register()
 	{

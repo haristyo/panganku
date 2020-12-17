@@ -11,10 +11,10 @@ class Article extends BaseController
 	}
 	public function index()
 	{
-		
+		$_SESSION['last']= 'article/';
 		//$artikel = $this->artikelModel->findAll();
 		$data = [
-			'artikel' => $this->artikelModel->getArtikelUser()
+			'artikel' => esc($this->artikelModel->getArtikelUser())
 			
 		];
 		
@@ -30,9 +30,10 @@ class Article extends BaseController
 
 	public function detail($id_artikel)
 	{
+		$_SESSION['last']= 'article/'.$id_artikel;
 		$data = [
-			'artikel' => $this->artikelModel->getArtikel($id_artikel),
-			'artikeluser' => $this->artikelModel->getArtikelUser($id_artikel)
+			'artikel' => esc($this->artikelModel->getArtikel($id_artikel)),
+			'artikeluser' => esc($this->artikelModel->getArtikelUser($id_artikel))
 		];
 		$title = ['title' => 'Detail Artikel | Panganku'];
 		// dd($data);
@@ -114,6 +115,7 @@ class Article extends BaseController
 
 	public function dashboardDelete($id_artikel)
 	{
+		$_SESSION['last']= 'article/'.$id_artikel;
 		if(session()->get('is_admin')=="Y"){
 		$this->artikelModel->delete($id_artikel);
 		session()->setFlashdata('pesan', 'Resep Berhasil Dihapus.');

@@ -19,7 +19,7 @@ class Recipe extends BaseController
 		];
 		//$resep = $this->resepModel->findAll();
 		$data = [
-			'resep' => $this->resepModel->getResep()
+			'resep' => esc($this->resepModel->getResep())
 		];
 		//dd($data);
 		echo view('header_v',$title);
@@ -32,11 +32,11 @@ class Recipe extends BaseController
 		// dd($this->resepModel->getResep($id_resep));
 		$title =  ['title' => 'Detail Resep | Panganku'];
 		$data = [
-			'resep' => $this->resepModel->getResep($id_resep)
+			'resep' => esc($this->resepModel->getResep($id_resep))
 		];
 		$komentar = [
-			'komentar' => $this->komentarModel->getKomentar($id_resep),
-			'resep' => $this->resepModel->getResep($id_resep),
+			'komentar' => esc($this->komentarModel->getKomentar($id_resep)),
+			'resep' => esc($this->resepModel->getResep($id_resep)),
 			'validation' =>  \Config\Services::validation(),
 		];
 		// dd($data);
@@ -132,12 +132,12 @@ class Recipe extends BaseController
 		
 
 		$this->resepModel->save([
-			'id_user' 		=> $this->request->getVar('id_user'),
-			'judul' 		=> $this->request->getVar('judul'),
-			'porsi' 		=> $this->request->getVar('porsi'),
-			'lama_memasak'	=> $this->request->getVar('lama_memasak'),
-			'bahan' 		=> $this->request->getVar('bahan'),
-			'tutorial' 		=> $this->request->getVar('tutorial'),
+			'id_user' 		=> $this->request->getVar('id_user',FILTER_SANITIZE_STRING),
+			'judul' 		=> $this->request->getVar('judul',FILTER_SANITIZE_STRING),
+			'porsi' 		=> $this->request->getVar('porsi',FILTER_SANITIZE_STRING),
+			'lama_memasak'	=> $this->request->getVar('lama_memasak',FILTER_SANITIZE_STRING),
+			'bahan' 		=> $this->request->getVar('bahan',FILTER_SANITIZE_STRING),
+			'tutorial' 		=> $this->request->getVar('tutorial',FILTER_SANITIZE_STRING),
 			'gambar_banner' => $namaBanner,
 			'gambar_tutorial' => $namaTutorial
 			
@@ -173,7 +173,7 @@ class Recipe extends BaseController
 		$title =  ['title' => 'Buat Resep | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation(),
-			'resep' => $this->resepModel->getResep($id_resep),
+			'resep' => esc($this->resepModel->getResep($id_resep)),
 		];
 		
 		echo view('header_v',$title);
@@ -241,11 +241,11 @@ class Recipe extends BaseController
 
 		$this->resepModel->save([
 			'id_resep' => $id_resep,
-			'judul' => $this->request->getVar('judul'),
-			'porsi' => $this->request->getVar('porsi'),
-			'lama_memasak' => $this->request->getVar('lama_memasak'),
-			'bahan' => $this->request->getVar('bahan'),
-			'tutorial' => $this->request->getVar('tutorial'),
+			'judul' => $this->request->getVar('judul',FILTER_SANITIZE_STRING),
+			'porsi' => $this->request->getVar('porsi',FILTER_SANITIZE_STRING),
+			'lama_memasak' => $this->request->getVar('lama_memasak',FILTER_SANITIZE_STRING),
+			'bahan' => $this->request->getVar('bahan',FILTER_SANITIZE_STRING),
+			'tutorial' => $this->request->getVar('tutorial',FILTER_SANITIZE_STRING),
 			'gambar_banner' => $namaBanner,
 			'gambar_tutorial' => $namaTutorial
 		]);
@@ -260,7 +260,7 @@ class Recipe extends BaseController
 		$title =  ['title' => 'Buat Resep | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation(),
-			'resep' => $this->resepModel->getResep($id_resep),
+			'resep' => esc($this->resepModel->getResep($id_resep)),
 		];
 		
 		if(session()->get('is_admin')=="Y"){
@@ -335,11 +335,11 @@ class Recipe extends BaseController
 
 		$this->resepModel->save([
 			'id_resep' => $id_resep,
-			'judul' => $this->request->getVar('judul'),
-			'porsi' => $this->request->getVar('porsi'),
-			'lama_memasak' => $this->request->getVar('lama_memasak'),
-			'bahan' => $this->request->getVar('bahan'),
-			'tutorial' => $this->request->getVar('tutorial'),
+			'judul' => $this->request->getVar('judul',FILTER_SANITIZE_STRING),
+			'porsi' => $this->request->getVar('porsi',FILTER_SANITIZE_STRING),
+			'lama_memasak' => $this->request->getVar('lama_memasak',FILTER_SANITIZE_STRING),
+			'bahan' => $this->request->getVar('bahan',FILTER_SANITIZE_STRING),
+			'tutorial' => $this->request->getVar('tutorial',FILTER_SANITIZE_STRING),
 			'gambar_banner' => $namaBanner,
 			'gambar_tutorial' => $namaTutorial
 		]);
@@ -378,7 +378,7 @@ class Recipe extends BaseController
 		$this->komentarModel->save([
 			'id_user' 		=> $this->request->getVar('id_user'),
 			'id_resep' 		=> $this->request->getVar('id_resep'),
-			'komentar' 		=> $this->request->getVar('komentar'),
+			'komentar' 		=> $this->request->getVar('komentar',FILTER_SANITIZE_STRING),
 			'gambar' => $namaGambar,
 				
 		]);
@@ -414,8 +414,8 @@ class Recipe extends BaseController
 		$title =  ['title' => 'Edit Komentar | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation(),
-			'komentarresep' => $this->komentarModel->getKomentar($id_resep),
-			'komentar' => $this->komentarModel->getKomentarbyid($id_komentar),
+			'komentarresep' => esc($this->komentarModel->getKomentar($id_resep)),
+			'komentar' => esc($this->komentarModel->getKomentarbyid($id_komentar)),
 
 		];
 		echo view('header_v',$title);
@@ -437,6 +437,7 @@ class Recipe extends BaseController
 		])) {
 			// $validation = \Config\Services::validation();
 			// return redirect()->to(base_url('/recipe/create'))->withInput()->with('validation',$validation);
+			$id_resep = $this->request->getVar('id_resep');
 			return redirect()->to(base_url('/recipe/detail/'.$id_resep))->withInput();
 		}
 		$fileGambar = $this->request->getFile('gambar');
@@ -450,7 +451,7 @@ class Recipe extends BaseController
 		
 		$this->komentarModel->save([
 			'id_komentar' => $id_komentar,
-			'komentar' 	  => $this->request->getVar('komentar'),
+			'komentar' 	  => $this->request->getVar('komentar',FILTER_SANITIZE_STRING),
 			'gambar'     => $namaGambar,
 		]);
 		session()->setFlashdata('pesan', 'Komentar Berhasil Diubah.');

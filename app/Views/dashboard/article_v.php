@@ -25,14 +25,13 @@
       <th scope="row"><a> <?=$a['id_artikel']; ?></th>
       <th scope="row"><a href="<?= base_url('article/'.$a['id_artikel'])?>" ><?=$a['judul']; ?></a></th>
       <th scope="row"><?=$a['username']; ?></th>
-      <th scope="col"><?= nl2br(substr($a['isi'],0,25)); ?>...</th>
+      <th scope="col"><?= nl2br(esc(substr($a['isi'],0,25),'html')); ?>...</th>
       <th scope="col">
         <?php if (! $a['gambar'] == "" ) { ?>
-          <img src="<?php echo base_url('img/article/'.$a['gambar']); ?>" width=100px> 
+          <img src="<?php echo base_url('/img/article/'.$a['gambar']); ?>" width=100px> 
         <?php } else {echo "<p>gambar tidak ada</p>";}?>
       </th>
       <th scope="col">
-
       <a href="/article/dashboardEdit/<?=$a['id_artikel'];?>" ><button><i class="fa fa-pencil-square-o" ></i></button></a>
       <a href="/article/dashboardDelete/<?=$a['id_artikel'];?>" ><button><i class="fa fa-trash-o" ></i></button></a>
       </th>

@@ -3,7 +3,7 @@
   <div class="row text-left align-self-left">
   <div class="col-md-12 col-lg-12 btn-komen mt-4 text-center"> Komentar</div>
   <?php foreach($komentar as $k):?>
-    <div class="col-md-12 col-lg-12 btn-isi-komen mt-1">
+    <div class="col-md-12 col-lg-12 btn-isi-komen mt-1 pb-1">
         <div class="d-flex inline">
           <div class="ml-0 mr-auto">
             <b><?=$k['username'];?></b> pada <?php echo($k['created_at']);?>
@@ -22,7 +22,7 @@
           </div>
           <?php }?>
         </div>    
-        <?=$k['komentar'];?><br/>
+        <?=nl2br(esc($k['komentar'],'html'));?><br/>
         <?php if(!$k['gambar']=="") {?>
         <img src="<?=base_url('img/recipe/komen/'.$k['gambar']); ?>" width="350px" >
         <?php } ?>

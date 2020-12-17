@@ -29,8 +29,8 @@
       <th scope="row"><a href="<?= base_url('recipe/'.$r['id_resep'])?>" ><?=$r['judul']; ?></a></th>
       <th scope="row"><?=$r['username']; ?></th>
   
-      <th scope="col"><?= nl2br(substr($r['bahan'],0,25)); ?>...</th>
-      <th scope="col"><?= nl2br(substr($r['tutorial'],0,25)); ?>...</th>
+      <th scope="col"><?= nl2br(esc(substr($r['bahan'],0,25),'html')); ?>...</th>
+      <th scope="col"><?= nl2br(esc(substr($r['tutorial'],0,25),'html')); ?>...</th>
       <th scope="col">
         <?php if (! $r['gambar_banner'] == "" ) { ?>
           <img src="<?php echo base_url('img/recipe/'.$r['gambar_banner']); ?>" width=100px> 

@@ -42,7 +42,7 @@ class Dashboard extends BaseController
         if(session()->get('is_admin')=="Y"){
         echo view('header_v',$title);
         echo view('sidebar_v');
-        echo view('/dashboard/article_v',$data);
+        echo view('dashboard/article_v',$data);
         // d($data);
         echo ("</div>");
         echo view('footer_v');

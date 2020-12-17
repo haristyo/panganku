@@ -22,7 +22,7 @@
     <tr>
       <th scope="row"><a> <?=$k['id_komentar']; ?></th>
       <th scope="row"><?=$k['username']; ?></th>
-      <th scope="col"><?= nl2br(substr($k['komentar'],0,25)); ?></th>
+      <th scope="col"><?= nl2br(esc(substr($k['komentar'],0,25),'html')); ?></th>
       <th scope="col">
         <?php if (! $k['gambar'] == "" ) { ?>
           <img src="<?php echo base_url('img/recipe/komen/'.$k['gambar']); ?>" width=100px> 
