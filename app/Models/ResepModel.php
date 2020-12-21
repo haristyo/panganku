@@ -6,16 +6,22 @@ class ResepModel extends Model
 {
     protected $table      = 'resep';
     protected $primaryKey = 'id_resep';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+    protected $createdField  = 'created_resep';
+    protected $updatedField  = 'updated_resep';
     protected $useTimestamps = true;
     protected $allowedFields = ['id_user','judul','porsi','lama_memasak','bahan','tutorial','gambar_banner','gambar_tutorial'];
     public function getResep($id_resep = false)
     {
      if ($id_resep == false){
-         return $this->join('user','user.id_user=resep.id_user')->findAll();
-    }
+        // $this->builder();
+         //>findAll()->orderBy('id_resep',ASC)
+         return $this->join('user','user.id_user=resep.id_user')->orderBy('id_resep', 'ASC')->get()->getResultArray();
+        }
     return $this->join('user','user.id_user=resep.id_user')->where(['id_resep' => $id_resep])->first();
+    }
+    public function count()
+    {
+        return $this->countAll();
     }
 
 }

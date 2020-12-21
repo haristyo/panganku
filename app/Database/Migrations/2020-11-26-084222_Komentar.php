@@ -30,11 +30,11 @@ class Komentar extends Migration
 				'type'           	=> 'TEXT',	
 				'null'         		=> true,
 			],
-			'created_at' => [
+			'created_komentar' => [
 				'type'           => 'DATETIME',
 				'null'           => true
 			],
-			'updated_at' => [
+			'updated_komentar' => [
 				'type'           => 'DATETIME',
 				'null'           => true
 			],

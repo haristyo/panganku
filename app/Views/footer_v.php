@@ -20,7 +20,7 @@
 
     <div class="copyrights">
       <div class="container">
-        <p>&copy; Hak Cipta 2020. Panganku Hak Cipta dilindungi Undang-undang.</p>
+        <p>&copy; Hak Cipta <?= date("Y") ?>. Panganku Hak Cipta dilindungi Undang-undang.</p>
       </div>
     </div>
 

@@ -36,7 +36,8 @@ class User extends BaseController
 		else {
 			if($data){
 				$pass = $data['password'];
-				$verify_pass = ($pass == $password);
+				$verify_pass = (password_verify($password,$pass));
+				
 				// dd($verify_pass);
 				if ($verify_pass) {
 					$sess_data = [
@@ -142,7 +143,7 @@ class User extends BaseController
 			'username' 		=> $this->request->getVar('username'),
 			'nama_lengkap' 	=> $this->request->getVar('nama_lengkap'),
 			'email'     	=> $this->request->getVar('email'),
-			'password' 		=> $this->request->getVar('password'),
+			'password' 		=>  password_hash($this->request->getVar('password'),PASSWORD_DEFAULT),
 			'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
 			'alamat' 		=> $this->request->getVar('alamat'),
 			'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),

@@ -32,7 +32,7 @@
 
         <div class="form-group row">
         <input type="hidden" name="gambar_old" value="<?= $artikel['gambar']?>">
-            <label for="gambar" class="col-sm-2">Masukkan Gambar Artikel <br><p color=red>*wajib diisi</p></label>
+            <label for="gambar" class="col-sm-2">Masukkan Gambar Artikel <br><p color=red>(jika ingin diubah)</p></label>
             <div class="col-sm-10">
                 <div class="form-control">
                     <input type="file" class="form-control-file <?= ($validation->hasError('gambar')) ? 'is-invalid' : '' ;?>" id="gambar" name="gambar">

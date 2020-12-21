@@ -17,26 +17,36 @@ class Dashboard extends BaseController
 	}
 	public function index()
 	{
+        
         $title = [
 			'title' => 'Dashboard Admin | Panganku'
 			
-		];
+        ];
+        $data =[
+            'user' => $this->userModel->count(),
+            'resep' => $this->resepModel->count(),
+            'komentar' => $this->komentarModel->count(),
+            'artikel' => $this->artikelModel->count()
+        ];
+        // sdd($data);
+        $_SESSION['last'] = 'dashboard';
         echo view('header_v',$title);
         echo view('sidebar_v');
-        //echo view('/dashboard/index_v');
+        echo view('/dashboard/index_v',$data);
         echo ("</div>");
 		echo view('footer_v');
 	}
 
     public function artikel()
 	{
+        $_SESSION['last'] = 'dashboard/artikel';
         // dd();
         $title = [
 			'title' => 'Dashboard Artikel | Panganku'
 			
         ];
         $data = [
-            'artikel' => $this->artikelModel->getArtikelUser()
+            'artikel' => esc($this->artikelModel->getArtikelUser())
         ];
         //  dd($data);
         if(session()->get('is_admin')=="Y"){
@@ -55,12 +65,13 @@ class Dashboard extends BaseController
 
     public function resep()
 	{
+        $_SESSION['last'] = 'dashboard/resep';
         $title = [
 			'title' => 'Dashboard Resep | Panganku'
 			
         ];
         $data = [
-            'resep' => $this->resepModel->getResep(),
+            'resep' => esc($this->resepModel->getResep()),
             'tgl' => new Time('now', 'America/Chicago', 'en_US')
             
         ];
@@ -81,12 +92,13 @@ class Dashboard extends BaseController
     }
     public function user()
 	{
+        $_SESSION['last'] = 'dashboard/user';
         $title = [
 			'title' => 'Dashboard User | Panganku'
 			
         ];
         $data = [
-            'user' => $this->userModel->getUser()
+            'user' => esc($this->userModel->getUser())
             
         ];
         //  dd($data);
@@ -107,6 +119,7 @@ class Dashboard extends BaseController
 
     public function komentar($id_komentar = false)
 	{
+        $_SESSION['last'] = 'dashboard/komentar';
         $title = [
             'title' => 'Dashboard Komentar | Panganku'
             

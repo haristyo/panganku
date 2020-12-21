@@ -23,5 +23,9 @@ class ArtikelModel extends Model
        }
        return $this->Where(['id_artikel' => $id_artikel])->first();
     }
+    public function count()
+    {
+        return $this->countAll();
+    }
 
 }

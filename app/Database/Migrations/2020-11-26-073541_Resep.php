@@ -47,11 +47,11 @@ class Resep extends Migration
 				'type'           => 'TEXT',
 				'null'           => true,
 			],
-			'created_at' => [
+			'created_resep' => [
 				'type'           => 'DATETIME',
 				'null'           => true
 			],
-			'updated_at' => [
+			'updated_resep' => [
 				'type'           => 'DATETIME',
 				'null'           => true
 			]

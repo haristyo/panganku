@@ -28,7 +28,7 @@
           <img src="<?php echo base_url('img/recipe/komen/'.$k['gambar']); ?>" width=100px> 
         <?php } else {echo "<p>gambar tidak ada</p>";}?>
       </th>
-      <th scope="col"><?=$k['created_at']; ?></th>
+      <th scope="col"><?=date("d-m-Y H:i:s", strtotime($k['created_komentar'])); ?></th>
       <th scope="col"><a href="<?= base_url('recipe/'.$k['id_resep'])?>" > <?= nl2br(substr($k['judul'],0,25)); ?></a></th>
       <th scope="col">              
         <form method="post" action="/recipe/dashboardKomentarDelete/<?=$k['id_komentar']?>" class="inline">

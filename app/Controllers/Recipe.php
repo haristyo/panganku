@@ -13,7 +13,8 @@ class Recipe extends BaseController
 	}
 	public function index()
 	{
-		
+
+		// dd($this->resepModel->count());
 		$title = [
 			'title' => 'Resep | Panganku'
 		];
@@ -29,7 +30,8 @@ class Recipe extends BaseController
 	public function detail($id_resep)
 	{
 		// d($this->komentarModel->getKomentar($id_resep));
-		// dd($this->resepModel->getResep($id_resep));
+		 
+		
 		$title =  ['title' => 'Detail Resep | Panganku'];
 		$data = [
 			'resep' => esc($this->resepModel->getResep($id_resep))
@@ -39,8 +41,9 @@ class Recipe extends BaseController
 			'resep' => esc($this->resepModel->getResep($id_resep)),
 			'validation' =>  \Config\Services::validation(),
 		];
+		
 		// dd($data);
-		// dd($komentar);
+		
 		if (empty($data['resep'])){
 			throw new PageNotFoundException('Resep tidak ditemukan');
 		}
@@ -170,6 +173,8 @@ class Recipe extends BaseController
 
 	public function edit($id_resep)
 	{		
+		$_SESSION['last'] = 'recipe/edit/'.$id_resep;
+		if(session()->get('logged_in')==TRUE){
 		$title =  ['title' => 'Buat Resep | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation(),
@@ -179,6 +184,11 @@ class Recipe extends BaseController
 		echo view('header_v',$title);
 		echo view('recipe/edit_v', $data);
 		echo view('footer_v');
+	}
+		else {
+			session()->setFlashdata('pesan', 'Anda harus login sebagai admin');
+				return redirect()->to(base_url('/login'));
+		}
 	}
 	public function update($id_resep)
 	{
@@ -323,8 +333,7 @@ class Recipe extends BaseController
 			$namaTutorial = $tutorial->getRandomName();
 			$tutorial->move('img/recipe/', $namaTutorial);
 			$fileTutorial.=$namaTutorial.',';
-		}
-		 
+		} 
 		$namaTutorial = substr($fileTutorial,0,-1);
 	}
 	
@@ -379,8 +388,7 @@ class Recipe extends BaseController
 			'id_user' 		=> $this->request->getVar('id_user'),
 			'id_resep' 		=> $this->request->getVar('id_resep'),
 			'komentar' 		=> $this->request->getVar('komentar',FILTER_SANITIZE_STRING),
-			'gambar' => $namaGambar,
-				
+			'gambar' => $namaGambar				
 		]);
 		
 		session()->setFlashdata('pesan', 'Komentar Berhasil Ditambahkan.');
@@ -389,11 +397,17 @@ class Recipe extends BaseController
 	}
 	public function komentarDelete($id_komentar)
 	{
+		if(session()->get('logged_in')==TRUE){
 		$id_resep = $this->request->getVar('id_resep');
 		// dd($id_resep);
 		$this->komentarModel->delete($id_komentar);
 		session()->setFlashdata('pesan', 'Komentar Berhasil Dihapus.');
-		return redirect()->to(base_url('/recipe/'.$id_resep));
+		return redirect()->to(base_url('recipe/'.$id_resep));
+		}
+		else {
+			session()->setFlashdata('pesan', 'Anda harus login sebagai admin');
+				return redirect()->to(base_url('/login'));
+		}
 	}	
 	public function dashboardKomentarDelete($id_komentar)
 	{
@@ -411,16 +425,24 @@ class Recipe extends BaseController
 	public function komentarEdit($id_komentar)
 	{
 		$id_resep = $this->request->getVar('id_resep');
+		$_SESSION['last'] = 'recipe';
+		if(session()->get('logged_in')==TRUE){
 		$title =  ['title' => 'Edit Komentar | Panganku'];
 		$data = [
 			'validation' =>  \Config\Services::validation(),
 			'komentarresep' => esc($this->komentarModel->getKomentar($id_resep)),
 			'komentar' => esc($this->komentarModel->getKomentarbyid($id_komentar)),
+			'updated_ad' => date("Y-m-d H:i:s")
 
 		];
 		echo view('header_v',$title);
 		echo view('/recipe/edit_komentar_v', $data);
 		echo view('footer_v');
+		}
+		else {
+			session()->setFlashdata('pesan', 'Anda harus login');
+				return redirect()->to(base_url('/login'));
+		}
 	}
 
 	public function komentarUpdate($id_komentar){

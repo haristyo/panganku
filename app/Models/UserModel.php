@@ -15,4 +15,8 @@ class UserModel extends Model
     }
     return $this->getWhere($id_user)->getResultArray()->first();
     }
+    public function count()
+    {
+        return $this->countAll();
+    }
 }

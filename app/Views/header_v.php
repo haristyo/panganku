@@ -28,7 +28,7 @@
   <!-- Main Stylesheet File -->
   <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('css/simple-sidebar.css'); ?>" rel="stylesheet">
-
+  <script type="text/javascript" src="js/Chart.js"></script>
 </head>
 
 <body>
