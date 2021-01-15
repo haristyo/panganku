@@ -49,12 +49,12 @@
           <li><a href="<?php echo base_url('article'); ?>">Artikel</a></li>
           <li><a href="<?php echo base_url('team'); ?>">Tim</a></li>
           <?php if(session()->get('is_admin')=="Y") {?>
-            <li><a href="<?php echo base_url('dashboard'); ?>" class="btn-login">Dasbor</a> </li>
+            <li><a href="<?php echo base_url('dashboard'); ?>" class="btn-login" style="color:white;">Dasbor</a> </li>
           <?php } ?>
           <?php if(session()->get('logged_in')==FALSE) {?>
-            <li><a href="<?php echo base_url('login'); ?>" class="btn-login">Masuk</a> </li>
+            <li><a href="<?php echo base_url('login'); ?>" class="btn-login" style="color:white;">Masuk</a> </li>
           <?php } else { ?>
-            <li><a href="<?php echo base_url('logout'); ?>" class="btn-danger">Keluar</a> </li>
+            <li><a href="<?php echo base_url('logout'); ?>" class="btn-danger" style="color:white;">Keluar</a> </li>
           <?php }?>
         </ul>
       </nav><!-- #nav-menu-container -->

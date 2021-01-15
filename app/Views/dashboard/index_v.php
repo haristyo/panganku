@@ -8,22 +8,13 @@
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['user','resep','komentar','artikel'],
+                    labels: ['User','Resep','Komentar','Artikel'],
                     datasets: [{
                             label: 'Total Data',
                             data: [<?=$user;?>,<?=$resep;?>,<?=$komentar;?>,<?=$artikel;?>],
-                            backgroundColor: [
-                                'rgba(255, 0, 0, 1)',
-                                'rgba(0, 0, 255, 1)',
-                                'rgba(0, 255, 0, 1)',
-                                'rgba(255, 255, 0, 1)'
-                            ],
-                            borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
-                            ],
+                            backgroundColor: 'rgba(0, 175, 145,0.8)',
+                            backgroundHover: 'rgba(0, 175, 145,1)',
+                            borderColor: 'rgb(0, 121, 101,1)',
                             borderWidth: 2
                         }]
                 },

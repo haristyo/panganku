@@ -33,7 +33,7 @@
       <div class="row">
       <?php $i = 1; foreach ($resep as $r) { ?>
         <div class="col-md-6 col-lg-4 my-2">
-          <div class="card w-100">
+          <div class="card w-100 h-100">
             <img src="<?php echo base_url('img/recipe/'.$r['gambar_banner']); ?>" alt="img<?= $i++; ?>" width="100%">
             <h4><?= $r['judul']; ?></h4>
             oleh <b><?= $r['username']; ?></b><br>
@@ -43,7 +43,7 @@
                 <div class="w-100"><?php echo nl2br(substr($r['tutorial'],0,150)); ?>...</div>
                 </p> 
                 <!-- referensi resep by: https://cookpad.com/id/resep/11575566-scramble-pottato-diet-pengganti-nasi -->
-            <a href="/recipe/<?= $r['id_resep']?>" class="w-100 btn btn-success align-self-center">Baca Selengkapnya</a>
+            <a href="/recipe/<?= $r['id_resep']?>" class=" mb-0 mt-auto w-100 btn btn-success align-self-center">Baca Selengkapnya</a>
           </div>
         </div>
         <?php } ?> 
