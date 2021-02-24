@@ -29,7 +29,7 @@
     </div>
     <div class="card d-flex" style="border: none">
       <h2><b><?= $resep['judul'];?></b></h2>
-      <p class="separator"> oleh </p><b><?= $resep['nama_lengkap']." pada ".date("d M Y H:i:s", strtotime($resep['created_resep']));?> </b>
+      <p class="separator"> oleh </p><b><?= $resep['nama_lengkap']." pada ".date("d F Y H:i:s", strtotime($resep['created_resep']));?> </b>
       <div>
         <img src="<?php echo base_url('/img/recipe/'.$resep['gambar_banner']); ?>" alt="artikel1" width="75%">
       </div>

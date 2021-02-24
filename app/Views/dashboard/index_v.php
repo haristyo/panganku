@@ -1,6 +1,6 @@
 
         <div class="container">
-            <div class=" mt-4 pt-4"><br/></div>
+            <div class=" mt-4 pt-4"> <br/></div>
             <canvas id="myChart" class=" mt-4 pt-4" style="width: 500px;height: 200px"></canvas>
         </div>
         <script>
@@ -22,7 +22,7 @@
                     scales: {
                         yAxes: [{
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: "false"
                                 }
                             }]
                     }
